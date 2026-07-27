@@ -1,0 +1,8 @@
+{
+  "name": "Remix 로하스건축사사무소 전에것",
+  "description": "위반건축물 양성화 전문 건축사사무소 공식 홈페이지 및 실시간 콘텐츠 관리자 CMS",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

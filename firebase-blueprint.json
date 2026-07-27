@@ -1,0 +1,100 @@
+{
+  "entities": {
+    "SEOSettings": {
+      "title": "SEOSettings",
+      "description": "Search Engine Optimization metadata settings",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "keywords": { "type": "string" },
+        "ogImage": { "type": "string" }
+      }
+    },
+    "DesignSettings": {
+      "title": "DesignSettings",
+      "description": "Branding and design settings",
+      "type": "object",
+      "properties": {
+        "primaryColor": { "type": "string" },
+        "accentColor": { "type": "string" },
+        "fontFamily": { "type": "string" },
+        "logoText": { "type": "string" },
+        "heroTitle": { "type": "string" },
+        "heroSubtitle": { "type": "string" },
+        "heroImageUrl": { "type": "string" }
+      }
+    },
+    "PageContent": {
+      "title": "PageContent",
+      "description": "Content for site pages",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "subtitle": { "type": "string" }
+      }
+    },
+    "Notice": {
+      "title": "Notice",
+      "description": "Notice and news post",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "category": { "type": "string" },
+        "published": { "type": "boolean" },
+        "isPinned": { "type": "boolean" },
+        "imageUrl": { "type": "string" }
+      }
+    },
+    "VisitorStats": {
+      "title": "VisitorStats",
+      "description": "Visitor and click metrics",
+      "type": "object",
+      "properties": {
+        "visits": { "type": "number" },
+        "pageViews": { "type": "number" },
+        "consultClicks": { "type": "number" },
+        "blogClicks": { "type": "number" },
+        "formClicks": { "type": "number" }
+      }
+    },
+    "MediaItem": {
+      "title": "MediaItem",
+      "description": "Uploaded media record",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "url": { "type": "string" },
+        "size": { "type": "number" },
+        "type": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "/seo/main": {
+      "schema": { "$ref": "#/entities/SEOSettings" },
+      "description": "Main SEO settings"
+    },
+    "/design/main": {
+      "schema": { "$ref": "#/entities/DesignSettings" },
+      "description": "Main design theme settings"
+    },
+    "/pages/{pageId}": {
+      "schema": { "$ref": "#/entities/PageContent" },
+      "description": "Page content definitions"
+    },
+    "/notices/{noticeId}": {
+      "schema": { "$ref": "#/entities/Notice" },
+      "description": "Notices and news items"
+    },
+    "/stats/stats": {
+      "schema": { "$ref": "#/entities/VisitorStats" },
+      "description": "Aggregate visitor statistics"
+    },
+    "/media/{mediaId}": {
+      "schema": { "$ref": "#/entities/MediaItem" },
+      "description": "Uploaded media attachments"
+    }
+  }
+}
