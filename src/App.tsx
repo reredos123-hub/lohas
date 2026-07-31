@@ -200,13 +200,13 @@ export default function App() {
     setShowLoginModal(true);
   };
 
-  // Handle Password Authentication (kim248879)
+  // Handle Password Authentication (master8879)
   const handlePasswordLogin = (e: React.FormEvent) => {
     e.preventDefault();
     setLoginError('');
     setLoginLoading(true);
 
-    if (adminPassword === 'kim248879') {
+    if (adminPassword === 'master8879') {
       const mockAdminUser = {
         email: 'reredos123@gmail.com',
         displayName: '관리자'

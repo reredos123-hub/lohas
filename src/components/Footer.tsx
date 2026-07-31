@@ -12,7 +12,7 @@ export default function Footer({ designSettings }: FooterProps) {
   
   const handleBlogClick = () => {
     trackClick('blogClicks');
-    window.open('https://blog.naver.com/reredos123', '_blank', 'noopener,noreferrer');
+    window.open('https://blog.naver.com/reredos123/224362919365', '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -103,7 +103,7 @@ export default function Footer({ designSettings }: FooterProps) {
           <div className="flex space-x-4">
             <a href="https://naver.me/FLE1OA3O" target="_blank" rel="noreferrer" className="hover:text-slate-200">개인정보 처리방침</a>
             <span>|</span>
-            <a href="https://blog.naver.com/reredos123" target="_blank" rel="noreferrer" className="hover:text-slate-200">네이버 블로그</a>
+            <a href="https://blog.naver.com/reredos123/224362919365" target="_blank" rel="noreferrer" className="hover:text-slate-200">네이버 블로그</a>
           </div>
         </div>
 

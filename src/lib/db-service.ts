@@ -152,7 +152,7 @@ export const DEFAULT_GUIDE: PageContent = {
       '건축물대장 및 토지대장 각 1부',
       '기존 건축물 도면 (부재 시 실측 도면 작성 필요)',
       '위반 부위 현장 사진 (전경, 세부)',
-      '기타 소유권 증빙 서류 및 토지사용승낙서 (타인 토지인 경우)'
+      '기타서류 : 2023.12.31 이전 완공 입증 자료, 이행강제금 납부서(또는 완납 계획)'
     ],
     duration: '현장 실측 및 법적 검토에 약 1~2주, 설계도서 작성 1주, 지자체 접수 및 심의 등에 약 2~4주가 소요되어 총 4~8주 내외로 처리됩니다. (지자체의 처리기간, 건축심의 일정 및 결과에 따라 변동 가능)',
     faqs: [
@@ -314,6 +314,22 @@ export async function seedDatabaseIfNeeded() {
           if (updated) {
             await updateDoc(guidePageRef, {
               'content.targetTypes': updatedTargetTypes,
+              updatedAt: serverTimestamp()
+            });
+          }
+        }
+
+        if (currentData && currentData.content && currentData.content.documents) {
+          const targetNewDocText = '기타서류 : 2023.12.31 이전 완공 입증 자료, 이행강제금 납부서(또는 완납 계획)';
+          const oldDocTexts = [
+            '기타 소유권 증빙 서류 및 토지사용승낙서 (타인 토지인 경우)',
+            '2023.12.31 이전 완공 입증 자료 (재산세·수도·전기 납부고지서, 항측사진, 시공계약서·영수증등)'
+          ];
+          const hasOldText = currentData.content.documents.some((d: string) => oldDocTexts.includes(d));
+          if (hasOldText) {
+            const updatedDocs = currentData.content.documents.map((d: string) => oldDocTexts.includes(d) ? targetNewDocText : d);
+            await updateDoc(guidePageRef, {
+              'content.documents': updatedDocs,
               updatedAt: serverTimestamp()
             });
           }
