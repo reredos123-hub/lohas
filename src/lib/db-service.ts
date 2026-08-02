@@ -58,7 +58,7 @@ export function handleFirestoreError(error: unknown, operationType: OperationTyp
     operationType,
     path
   };
-  console.error('Firestore Error: ', JSON.stringify(errInfo));
+  console.warn('Firestore Operation Info: ', JSON.stringify(errInfo));
   return errInfo;
 }
 
@@ -378,7 +378,7 @@ export async function seedDatabaseIfNeeded() {
     }
 
   } catch (error) {
-    console.error('Error during database seeding:', error);
+    console.warn('Error during database seeding:', error);
   }
 }
 
@@ -402,7 +402,7 @@ export async function trackPageView() {
       }, { merge: true });
     }
   } catch (error) {
-    console.error('Failed to track page view:', error);
+    console.warn('Failed to track page view:', error);
   }
 }
 
@@ -413,7 +413,7 @@ export async function trackClick(type: 'consultClicks' | 'blogClicks' | 'formCli
       [type]: increment(1)
     }, { merge: true });
   } catch (error) {
-    console.error(`Failed to track click for ${type}:`, error);
+    console.warn(`Failed to track click for ${type}:`, error);
   }
 }
 
@@ -430,7 +430,7 @@ export async function resetVisitorStats() {
       formClicks: 0
     });
   } catch (error) {
-    console.error('Failed to reset visitor stats:', error);
+    console.warn('Failed to reset visitor stats:', error);
     throw error;
   }
 }
@@ -618,7 +618,7 @@ export async function deleteNotice(id: string) {
       // ignore
     }
   } catch (error) {
-    console.error(`Error deleting notice (${id}):`, error);
+    console.warn(`Error deleting notice (${id}):`, error);
     throw error;
   }
 }
@@ -640,7 +640,7 @@ export async function fetchMediaItems(): Promise<MediaItem[]> {
     });
     return list;
   } catch (error) {
-    console.error('Error fetching media items:', error);
+    console.warn('Error fetching media items:', error);
   }
   return [];
 }

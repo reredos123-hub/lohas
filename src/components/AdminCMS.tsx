@@ -210,7 +210,7 @@ export default function AdminCMS({ adminEmail, onLogout, onRefreshData }: AdminC
       setMediaItems(md);
 
     } catch (err) {
-      console.error('Failed to load CMS data:', err);
+      console.warn('Failed to load CMS data:', err);
     }
   };
 

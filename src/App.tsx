@@ -164,7 +164,7 @@ export default function App() {
         try { localStorage.setItem('lohas_cache_guide', JSON.stringify(guide)); } catch {}
       }
     }).catch(error => {
-      console.error('Non-blocking fetch error:', error);
+      console.warn('Non-blocking fetch notice:', error);
     });
   };
 

@@ -4,6 +4,14 @@ import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/
 import defaultConfig from '../firebase-applet-config.json';
 
 // Support both firebase-applet-config.json and Netlify / Vite environment variables
+const getFirestoreDatabaseId = () => {
+  const envId = import.meta.env.VITE_FIREBASE_FIRESTORE_DATABASE_ID;
+  if (envId && envId !== '(default)' && envId.trim() !== '') {
+    return envId;
+  }
+  return defaultConfig.firestoreDatabaseId || '(default)';
+};
+
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY || defaultConfig.apiKey,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || defaultConfig.authDomain,
@@ -11,7 +19,7 @@ const firebaseConfig = {
   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || defaultConfig.storageBucket,
   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || defaultConfig.messagingSenderId,
   appId: import.meta.env.VITE_FIREBASE_APP_ID || defaultConfig.appId,
-  firestoreDatabaseId: import.meta.env.VITE_FIREBASE_FIRESTORE_DATABASE_ID || defaultConfig.firestoreDatabaseId || '(default)',
+  firestoreDatabaseId: getFirestoreDatabaseId(),
 };
 
 // Initialize Firebase app
@@ -23,17 +31,6 @@ export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
 // Initialize Auth
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
-
-async function testConnection() {
-  try {
-    await getDocFromServer(doc(db, 'system', 'connection'));
-  } catch (error) {
-    if (error instanceof Error && error.message.includes('the client is offline')) {
-      console.error("Please check your Firebase configuration.");
-    }
-  }
-}
-testConnection();
 
 export { app, signInWithPopup, signOut };
 

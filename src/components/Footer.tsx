@@ -48,7 +48,7 @@ export default function Footer({ designSettings }: FooterProps) {
                 className="inline-flex items-center space-x-2 py-2.5 px-5 bg-[#03C75A] hover:bg-[#02b350] text-white font-extrabold text-xs sm:text-sm rounded-full transition-all shadow-[0_0_15px_rgba(3,199,90,0.3)] hover:scale-105 cursor-pointer"
               >
                 <span className="font-black text-base">N</span>
-                <span>공식 네이버 블로그 연결</span>
+                <span>네이버 블로그 연결</span>
                 <ExternalLink size={13} />
               </button>
             </div>
