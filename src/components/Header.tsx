@@ -110,7 +110,7 @@ export default function Header({
               className="px-2.5 lg:px-3.5 py-1.5 lg:py-2 bg-[#03C75A] hover:bg-[#02b350] text-white font-extrabold text-xs lg:text-sm rounded-full transition-all duration-300 flex items-center space-x-1.5 shadow-[0_0_12px_rgba(3,199,90,0.35)] hover:shadow-[0_0_20px_rgba(3,199,90,0.6)] hover:scale-[1.03] cursor-pointer"
             >
               <span className="font-black text-[10px] lg:text-xs px-1 py-0.2 bg-white text-[#03C75A] rounded font-mono leading-none">N</span>
-              <span>네이버 블로그 연결</span>
+              <span>양성화 상세정보</span>
               <ExternalLink size={12} className="opacity-80" />
             </button>
 
@@ -199,7 +199,7 @@ export default function Header({
             >
               <div className="flex items-center space-x-2">
                 <span className="font-black text-xs px-1.5 py-0.5 bg-white text-[#03C75A] rounded font-mono">N</span>
-                <span>네이버 블로그 연결</span>
+                <span>양성화 상세정보</span>
               </div>
               <ExternalLink size={16} />
             </button>
