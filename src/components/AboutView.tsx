@@ -118,7 +118,7 @@ export default function AboutView({ pageContent, designSettings }: AboutViewProp
 
               {/* Blog button */}
               <a 
-                href="https://blog.naver.com/reredos123/224362919365"
+                href="https://blog.naver.com/reredos123"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-3 px-4 rounded-full text-center bg-[#03C75A] hover:bg-[#02b350] text-white font-extrabold text-sm transition-all flex items-center justify-center space-x-2 cursor-pointer shadow-lg hover:scale-[1.02]"
